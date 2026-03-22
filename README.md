@@ -27,7 +27,7 @@
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-org/med-360-copilot.git
+git clone https://github.com/mohammedrehman33/med-360-copilot.git
 cd med-360-copilot
 
 # 2. Copy environment config
@@ -123,7 +123,20 @@ The app auto-detects which API key is available and uses that provider.
 
 ## 📸 Screenshots
 
-Screenshots coming soon.
+### Home — AI Chat Copilot
+![Home Page](./public/screenshots/01-home.png)
+
+### Symptom Triage
+![Symptom Triage](./public/screenshots/02-triage.png)
+
+### Drug Intelligence
+![Drug Intelligence](./public/screenshots/03-drugs.png)
+
+### Prescription Analysis
+![Prescription Analysis](./public/screenshots/04-analyze.png)
+
+### Health Calculators
+![Health Calculators](./public/screenshots/05-calculators.png)
 
 ## 🚢 Deployment
 
