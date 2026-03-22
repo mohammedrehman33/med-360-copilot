@@ -1,0 +1,14 @@
+node_modules/
+public/uploads/
+.next/
+*.db
+*.db-journal
+.env
+.env.local
+.env.production
+dist/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+.vercel

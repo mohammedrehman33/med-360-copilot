@@ -1,0 +1,580 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   PharmaAI Copilot — Blue-Purple Gradient Design System
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Surface Hierarchy (Stacked Paper Metaphor) ─── */
+  --surface: #f8f9ff;
+  --surface-container-low: #EFF6FF;
+  --surface-container: #E0F2FE;
+  --surface-container-high: #DBEAFE;
+  --surface-container-highest: #BFDBFE;
+  --surface-container-lowest: #ffffff;
+  --surface-bright: #f8f9ff;
+  --surface-dim: linear-gradient(135deg, #DBEAFE 0%, #EDE9FE 100%);
+  --surface-variant: #BFDBFE;
+
+  /* ─── Primary — Blue ─── */
+  --primary: #3B82F6;
+  --primary-dim: #2563EB;
+  --primary-container: #DBEAFE;
+  --primary-fixed: #DBEAFE;
+  --primary-fixed-dim: #BFDBFE;
+  --on-primary: #ffffff;
+  --on-primary-container: #1E40AF;
+  --on-primary-fixed: #1E3A5F;
+  --on-primary-fixed-variant: #2563EB;
+
+  /* ─── Secondary — Violet ─── */
+  --secondary: #7C3AED;
+  --secondary-dim: #6D28D9;
+  --secondary-container: #EDE9FE;
+  --secondary-fixed: #EDE9FE;
+  --secondary-fixed-dim: #DDD6FE;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #5B21B6;
+  --on-secondary-fixed: #4C1D95;
+  --on-secondary-fixed-variant: #6D28D9;
+
+  /* ─── Tertiary — Alert Red ─── */
+  --tertiary: #bd0c3b;
+  --tertiary-dim: #a90032;
+  --tertiary-container: #fc4563;
+  --tertiary-fixed: #fc4563;
+  --tertiary-fixed-dim: #ea3858;
+  --on-tertiary: #fff7f6;
+  --on-tertiary-container: #100001;
+  --on-tertiary-fixed: #000000;
+
+  /* ─── Text & Surface Content ─── */
+  --on-surface: #00345e;
+  --on-surface-variant: #475569;
+  --on-background: #00345e;
+  --inverse-surface: #000f21;
+  --inverse-on-surface: #8e9eb7;
+  --inverse-primary: #34b5fa;
+
+  /* ─── Outline & Borders ─── */
+  --outline: #94A3B8;
+  --outline-variant: #CBD5E1;
+
+  /* ─── Error ─── */
+  --error: #9f403d;
+  --error-dim: #4e0309;
+  --error-container: #fe8983;
+  --on-error: #fff7f6;
+  --on-error-container: #752121;
+
+  /* ─── Ambient Shadow (6% opacity, 40px blur) ─── */
+  --shadow-ambient: 0 4px 40px -10px rgba(59, 130, 246, 0.06);
+  --shadow-card: 0 2px 20px -8px rgba(59, 130, 246, 0.04);
+  --shadow-float: 0 20px 40px -15px rgba(59, 130, 246, 0.08);
+
+  /* ─── Radius ─── */
+  --radius: 0.75rem;
+  --radius-xl: 0.75rem;
+  --radius-lg: 0.5rem;
+
+  /* ─── shadcn/ui compatible tokens ─── */
+  --background: 226 100% 98%;
+  --foreground: 207 100% 18%;
+  --card: 0 0% 100%;
+  --card-foreground: 207 100% 18%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 207 100% 18%;
+  --muted: 218 100% 95%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 218 100% 93%;
+  --accent-foreground: 207 100% 18%;
+  --destructive: 354 84% 40%;
+  --destructive-foreground: 0 100% 98%;
+  --border: 213 27% 84%;
+  --input: 218 100% 95%;
+  --ring: 217 91% 60%;
+}
+
+@theme inline {
+  /* Surface tokens */
+  --color-surface: #f8f9ff;
+  --color-surface-container-low: #EFF6FF;
+  --color-surface-container: #E0F2FE;
+  --color-surface-container-high: #DBEAFE;
+  --color-surface-container-highest: #BFDBFE;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-dim: #DBEAFE;
+  --color-surface-variant: #BFDBFE;
+
+  /* Primary */
+  --color-primary: #3B82F6;
+  --color-primary-dim: #2563EB;
+  --color-primary-container: #DBEAFE;
+  --color-primary-fixed-dim: #BFDBFE;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1E40AF;
+  --color-on-primary-fixed: #1E3A5F;
+  --color-on-primary-fixed-variant: #2563EB;
+
+  /* Secondary */
+  --color-secondary: #7C3AED;
+  --color-secondary-dim: #6D28D9;
+  --color-secondary-container: #EDE9FE;
+  --color-secondary-fixed: #EDE9FE;
+  --color-secondary-fixed-dim: #DDD6FE;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #5B21B6;
+  --color-on-secondary-fixed: #4C1D95;
+  --color-on-secondary-fixed-variant: #6D28D9;
+
+  /* Tertiary */
+  --color-tertiary: #bd0c3b;
+  --color-tertiary-dim: #a90032;
+  --color-tertiary-container: #fc4563;
+  --color-tertiary-fixed: #fc4563;
+  --color-tertiary-fixed-dim: #ea3858;
+  --color-on-tertiary: #fff7f6;
+  --color-on-tertiary-container: #100001;
+
+  /* Text & Surface Content */
+  --color-on-surface: #00345e;
+  --color-on-surface-variant: #475569;
+  --color-on-background: #00345e;
+
+  /* Outline */
+  --color-outline: #94A3B8;
+  --color-outline-variant: #CBD5E1;
+
+  /* Error */
+  --color-error: #9f403d;
+  --color-error-container: #fe8983;
+  --color-on-error: #fff7f6;
+  --color-on-error-container: #752121;
+
+  /* Inverse */
+  --color-inverse-surface: #000f21;
+  --color-inverse-on-surface: #8e9eb7;
+
+  /* Backgrounds & Foregrounds */
+  --color-background: #f8f9ff;
+  --color-foreground: #00345e;
+
+  /* Fonts */
+  --font-headline: 'Manrope', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-label: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* ─── Base Styles ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+/* Headlines use Manrope */
+h1, h2, h3, h4 {
+  font-family: var(--font-headline);
+}
+
+/* Selection — soft primary tint */
+::selection {
+  background-color: rgba(59, 130, 246, 0.12);
+  color: var(--on-surface);
+}
+
+/* Focus — accessible but subtle */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* ─── Gradient Utilities ─── */
+.gradient-primary {
+  background: linear-gradient(135deg, #00C9FF 0%, #3B82F6 40%, #7C3AED 100%);
+}
+.gradient-primary-subtle {
+  background: linear-gradient(135deg, rgba(0,201,255,0.05) 0%, rgba(59,130,246,0.05) 40%, rgba(124,58,237,0.05) 100%);
+}
+
+/* ─── Animations ─── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+}
+.agent-pulse { animation: pulse-glow 2s infinite; }
+
+@keyframes slide-in {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.slide-in { animation: slide-in 0.3s ease-out; }
+
+@keyframes fade-up {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.fade-up { animation: fade-up 0.4s ease-out; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #EFF6FF 25%, #DBEAFE 50%, #EFF6FF 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* ─── Ghost Border Utility (15% opacity outlines for a11y) ─── */
+.ghost-border {
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Micro-Interaction Animations — Premium Feel
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Card Hover Lift ─── */
+.card-hover {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  will-change: transform, box-shadow;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -8px rgba(59, 130, 246, 0.12);
+}
+
+/* ─── 2. Magnetic Button ─── */
+.btn-magnetic {
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 200ms ease;
+  will-change: transform;
+}
+.btn-magnetic:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px -4px rgba(59, 130, 246, 0.18);
+}
+.btn-magnetic:active {
+  transform: scale(0.98);
+  transition-duration: 100ms;
+}
+
+/* ─── 3. Ripple Effect (CSS Only) ─── */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(59, 130, 246, 0.15) 0%, transparent 60%);
+  transform: scale(0);
+  opacity: 0;
+  transition: none;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.ripple:active::after {
+  transform: scale(4);
+  opacity: 1;
+  transition: transform 500ms ease-out, opacity 400ms ease-out;
+}
+
+/* ─── 4. Stagger Children (Fade-Up on Entry) ─── */
+@keyframes stagger-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.stagger-children > * {
+  opacity: 0;
+  animation: stagger-fade-up 0.4s ease-out forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 360ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 420ms; }
+.stagger-children > *:nth-child(9) { animation-delay: 480ms; }
+.stagger-children > *:nth-child(10) { animation-delay: 540ms; }
+
+/* ─── 5. Glow Pulse for Active Elements ─── */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 4px 0 rgba(59, 130, 246, 0.25), 0 0 12px -2px rgba(59, 130, 246, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px rgba(59, 130, 246, 0.35), 0 0 20px -2px rgba(59, 130, 246, 0.2);
+  }
+}
+.glow-active {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* ─── 6. Count-Up Number Animation ─── */
+@keyframes count-up-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.3em);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.count-up {
+  display: inline-block;
+  animation: count-up-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── 7. Slide-In from Different Directions ─── */
+@keyframes slide-in-from-left {
+  from { transform: translateX(-24px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-in-from-right {
+  from { transform: translateX(24px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-in-from-bottom {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.slide-in-left {
+  animation: slide-in-from-left 0.4s ease-out forwards;
+}
+.slide-in-right {
+  animation: slide-in-from-right 0.4s ease-out forwards;
+}
+.slide-in-bottom {
+  animation: slide-in-from-bottom 0.4s ease-out forwards;
+}
+
+/* ─── 8. Breathing Dot (Status Indicator) ─── */
+@keyframes breathing-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.6;
+  }
+}
+.breathing-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #7C3AED;
+  animation: breathing-dot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.breathing-dot::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.3;
+  animation: breathing-dot 2s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+/* ─── 9. Typewriter Effect ─── */
+@keyframes typewriter-cursor {
+  0%, 100% { border-right-color: var(--primary, #3B82F6); }
+  50% { border-right-color: transparent; }
+}
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--primary, #3B82F6);
+  width: 0;
+  animation:
+    typewriter-expand 1.8s steps(40, end) forwards,
+    typewriter-cursor 0.75s step-end infinite;
+}
+@keyframes typewriter-expand {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* ─── 10. Progress Shine ─── */
+@keyframes progress-shine-move {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+.progress-shine {
+  position: relative;
+  overflow: hidden;
+}
+.progress-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  animation: progress-shine-move 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ─── 11. Skeleton Loading (Enhanced Shimmer) ─── */
+@keyframes skeleton-shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-container-low, #EFF6FF) 0%,
+    var(--surface-container-high, #DBEAFE) 40%,
+    var(--surface-container-low, #EFF6FF) 80%
+  );
+  background-size: 800px 100%;
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+  border-radius: var(--radius-lg, 0.5rem);
+  color: transparent !important;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ─── 12. Section Reveal (Fade + Slide Up on Scroll) ─── */
+@keyframes section-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.section-reveal {
+  animation: section-reveal-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Progressive enhancement: use scroll-driven animation if supported */
+@supports (animation-timeline: view()) {
+  .section-reveal {
+    animation: section-reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+    opacity: 0;
+  }
+}
+
+/* ─── 13. Icon Bounce ─── */
+@keyframes icon-bounce-up {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-4px); }
+  60% { transform: translateY(-2px); }
+}
+.icon-bounce {
+  display: inline-flex;
+  transition: color 200ms ease;
+}
+.icon-bounce:hover {
+  animation: icon-bounce-up 0.45s ease-out;
+  color: var(--primary, #3B82F6);
+}
+
+/* ─── 14. Tag Pop ─── */
+@keyframes tag-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.tag-pop {
+  animation: tag-pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+/* ─── Scrollbar Hide ─── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .card-hover,
+  .btn-magnetic,
+  .ripple::after,
+  .stagger-children > *,
+  .glow-active,
+  .count-up,
+  .slide-in-left,
+  .slide-in-right,
+  .slide-in-bottom,
+  .breathing-dot,
+  .typewriter,
+  .progress-shine::after,
+  .skeleton,
+  .section-reveal,
+  .icon-bounce,
+  .tag-pop {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .typewriter {
+    width: 100% !important;
+    border-right-color: transparent !important;
+  }
+}

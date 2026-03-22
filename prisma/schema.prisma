@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(uuid())
+  email         String         @unique
+  name          String?
+  plan          String         @default("free")
+  prescriptions Prescription[]
+  labReports    LabReport[]
+  createdAt     DateTime       @default(now())
+}
+
+model Prescription {
+  id              String            @id @default(uuid())
+  userId          String
+  user            User              @relation(fields: [userId], references: [id])
+  fileName        String
+  filePath        String
+  fileType        String
+  ocrText         String?
+  ocrStatus       String            @default("pending")
+  parsedMedicines String?
+  status          String            @default("uploaded")
+  analyses        AnalysisResult[]
+  guides          MedicationGuide[]
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model Drug {
+  id                String   @id @default(uuid())
+  brandName         String
+  saltComposition   String
+  drugClass         String
+  mechanism         String?
+  standardDosage    String?
+  dosageRangeMin    String?
+  dosageRangeMax    String?
+  route             String?
+  sideEffects       String?
+  contraindications String?
+  foodInteractions  String?
+  manufacturer      String?
+  priceRange        String?
+  region            String   @default("PK")
+  createdAt         DateTime @default(now())
+
+  @@index([brandName])
+  @@index([saltComposition])
+}
+
+model DrugInteraction {
+  id          String @id @default(uuid())
+  drug1Salt   String
+  drug2Salt   String
+  severity    String
+  description String
+  mechanism   String?
+  evidence    String?
+  management  String?
+
+  @@index([drug1Salt, drug2Salt])
+}
+
+model AnalysisResult {
+  id             String       @id @default(uuid())
+  prescriptionId String
+  prescription   Prescription @relation(fields: [prescriptionId], references: [id], onDelete: Cascade)
+  type           String
+  agentName      String
+  status         String       @default("pending")
+  inputData      String?
+  outputData     String?
+  insights       String?
+  errorMessage   String?
+  startedAt      DateTime?
+  completedAt    DateTime?
+  createdAt      DateTime     @default(now())
+}
+
+model MedicationGuide {
+  id             String       @id @default(uuid())
+  prescriptionId String
+  prescription   Prescription @relation(fields: [prescriptionId], references: [id], onDelete: Cascade)
+  medicineName   String
+  saltName       String
+  instructions   String
+  dosList        String
+  dontsList      String
+  sideEffects    String
+  whenToCallDoc  String
+  disclaimer     String
+  createdAt      DateTime     @default(now())
+}
+
+model LabReport {
+  id              String   @id @default(uuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  fileName        String
+  filePath        String
+  fileType        String
+  parsedResults   String?
+  abnormalValues  String?
+  recommendations String?
+  status          String   @default("uploaded")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
